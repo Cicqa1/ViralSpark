@@ -1,0 +1,6 @@
+{
+  "name": "Social Media Post Generator",
+  "description": "Generate high-converting, engaging, and platform-optimized social media posts for LinkedIn and Twitter (X) customized by topic, tone, industry, and platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
