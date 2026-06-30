@@ -33,11 +33,11 @@ export default function ToneSelector({ selectedTone, onChange, theme = "dark" }:
   return (
     <div id="tone-selector" className="space-y-3">
       <div className="flex items-center justify-between">
-        <label className={`text-xs font-bold uppercase tracking-wider font-display flex items-center gap-1.5 ${isDark ? "text-slate-400" : "text-slate-500"}`}>
-          <Sparkles size={14} className={isDark ? "text-violet-400" : "text-blue-500"} />
+        <label className={`text-xs font-bold uppercase tracking-wider font-display flex items-center gap-1.5 transition-colors duration-500 ease-in-out ${isDark ? "text-slate-400" : "text-slate-500"}`}>
+          <Sparkles size={14} className={`transition-colors duration-500 ease-in-out ${isDark ? "text-violet-400" : "text-blue-500"}`} />
           <span>Copywriting Tone</span>
         </label>
-        <span className={`text-[10px] font-mono px-2.5 py-0.5 rounded-full font-medium border ${
+        <span className={`text-[10px] font-mono px-2.5 py-0.5 rounded-full font-medium border transition-all duration-500 ease-in-out ${
           isDark 
             ? "text-violet-400 bg-violet-950/40 border-violet-800/40" 
             : "text-blue-600 bg-blue-50 border-blue-100"
@@ -60,7 +60,7 @@ export default function ToneSelector({ selectedTone, onChange, theme = "dark" }:
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.04 }}
               onClick={() => handleSelectPreset(p.value)}
-              className={`text-left p-3 rounded-xl border text-xs transition-colors duration-150 cursor-pointer ${
+              className={`text-left p-3 rounded-xl border text-xs transition-all duration-500 ease-in-out cursor-pointer ${
                 isSelected
                   ? isDark
                     ? "border-violet-500 bg-violet-950/40 text-violet-100 ring-2 ring-violet-500/20"
@@ -70,8 +70,8 @@ export default function ToneSelector({ selectedTone, onChange, theme = "dark" }:
                     : "border-slate-200 hover:border-slate-350 bg-white text-slate-700"
               }`}
             >
-              <div className={`font-semibold ${isDark ? "text-slate-100" : "text-slate-800"}`}>{p.label}</div>
-              <div className={`text-[10px] mt-1 leading-normal line-clamp-2 ${isDark ? "text-slate-400" : "text-slate-500"}`}>
+              <div className={`font-semibold transition-colors duration-500 ease-in-out ${isDark ? "text-slate-100" : "text-slate-800"}`}>{p.label}</div>
+              <div className={`text-[10px] mt-1 leading-normal line-clamp-2 transition-colors duration-500 ease-in-out ${isDark ? "text-slate-400" : "text-slate-500"}`}>
                 {p.desc}
               </div>
             </motion.button>
@@ -87,7 +87,7 @@ export default function ToneSelector({ selectedTone, onChange, theme = "dark" }:
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={enableCustomMode}
-            className={`px-3 py-1.5 rounded-lg border text-xs font-medium cursor-pointer transition ${
+            className={`px-3 py-1.5 rounded-lg border text-xs font-medium cursor-pointer transition-all duration-500 ease-in-out ${
               isCustomMode
                 ? isDark
                   ? "border-violet-500 bg-violet-950 text-violet-300 font-semibold"
@@ -107,7 +107,7 @@ export default function ToneSelector({ selectedTone, onChange, theme = "dark" }:
               value={customTone}
               onChange={handleCustomChange}
               placeholder="e.g. Witty, Academic, Brutally Honest..."
-              className={`flex-1 px-3 py-1.5 text-xs border rounded-lg focus:outline-none focus:ring-2 font-sans ${
+              className={`flex-1 px-3 py-1.5 text-xs border rounded-lg focus:outline-none focus:ring-2 font-sans transition-all duration-500 ease-in-out ${
                 isDark
                   ? "bg-slate-950 border-slate-800 text-slate-200 placeholder:text-slate-600 focus:ring-violet-500/20 focus:border-violet-500"
                   : "bg-white border-slate-200 text-slate-900 placeholder:text-slate-400 focus:ring-blue-500/20 focus:border-blue-500"

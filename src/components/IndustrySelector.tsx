@@ -33,11 +33,11 @@ export default function IndustrySelector({ selectedIndustry, onChange, theme = "
   return (
     <div id="industry-selector" className="space-y-3">
       <div className="flex items-center justify-between">
-        <label className={`text-xs font-bold uppercase tracking-wider font-display flex items-center gap-1.5 ${isDark ? "text-slate-400" : "text-slate-500"}`}>
-          <Briefcase size={14} className={isDark ? "text-slate-400" : "text-slate-500"} />
+        <label className={`text-xs font-bold uppercase tracking-wider font-display flex items-center gap-1.5 transition-colors duration-500 ease-in-out ${isDark ? "text-slate-400" : "text-slate-500"}`}>
+          <Briefcase size={14} className={`transition-colors duration-500 ease-in-out ${isDark ? "text-slate-400" : "text-slate-500"}`} />
           <span>Industry Sector</span>
         </label>
-        <span className={`text-[10px] font-mono px-2.5 py-0.5 rounded-full font-medium border ${
+        <span className={`text-[10px] font-mono px-2.5 py-0.5 rounded-full font-medium border transition-all duration-500 ease-in-out ${
           isDark 
             ? "text-violet-400 bg-violet-950/40 border-violet-800/40" 
             : "text-blue-600 bg-blue-50 border-blue-100"
@@ -60,7 +60,7 @@ export default function IndustrySelector({ selectedIndustry, onChange, theme = "
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: idx * 0.02 }}
               onClick={() => handleSelectPreset(ind)}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium border cursor-pointer transition-colors duration-150 ${
+              className={`px-3 py-1.5 rounded-full text-xs font-medium border cursor-pointer transition-all duration-500 ease-in-out ${
                 isSelected
                   ? isDark
                     ? "border-violet-500 bg-violet-950/40 text-violet-100 ring-2 ring-violet-500/10"
@@ -80,7 +80,7 @@ export default function IndustrySelector({ selectedIndustry, onChange, theme = "
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           onClick={handleEnableCustom}
-          className={`px-3 py-1.5 rounded-full text-xs font-medium border cursor-pointer transition-colors duration-150 ${
+          className={`px-3 py-1.5 rounded-full text-xs font-medium border cursor-pointer transition-all duration-500 ease-in-out ${
             isCustom
               ? isDark
                 ? "border-violet-500 bg-violet-950 text-violet-300 ring-2 ring-violet-500/10"
@@ -105,7 +105,7 @@ export default function IndustrySelector({ selectedIndustry, onChange, theme = "
             value={customIndustry}
             onChange={handleCustomChange}
             placeholder="Type your niche (e.g. Cybersecurity, Devops, SpaceTech)"
-            className={`w-full px-3 py-2 text-xs border rounded-xl focus:outline-none focus:ring-2 font-sans ${
+            className={`w-full px-3 py-2 text-xs border rounded-xl focus:outline-none focus:ring-2 font-sans transition-all duration-500 ease-in-out ${
               isDark
                 ? "bg-slate-950 border-slate-800 text-slate-200 placeholder:text-slate-600 focus:ring-violet-500/20 focus:border-violet-500"
                 : "bg-white border-slate-200 text-slate-900 placeholder:text-slate-400 focus:ring-blue-500/20 focus:border-blue-500"

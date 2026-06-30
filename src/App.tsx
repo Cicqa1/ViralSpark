@@ -288,25 +288,25 @@ export default function App() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column - Input Panel */}
-          <div className={`lg:col-span-5 rounded-2xl border overflow-hidden backdrop-blur-sm transition-all duration-300 ${
+          <div className={`lg:col-span-5 rounded-2xl border overflow-hidden backdrop-blur-sm transition-all duration-500 ease-in-out ${
             isDark 
               ? "bg-[#13171e]/70 border-slate-800/80 shadow-2xl shadow-black/20" 
               : "bg-white border-slate-200/80 shadow-lg shadow-slate-100"
           }`}>
-            <div className={`p-5 border-b flex items-center justify-between transition-colors duration-300 ${
+            <div className={`p-5 border-b flex items-center justify-between transition-all duration-500 ease-in-out ${
               isDark ? "border-slate-800/60 bg-slate-900/30" : "border-slate-100 bg-slate-50/50"
             }`}>
-              <h2 className={`font-bold text-sm flex items-center gap-1.5 font-display tracking-wide ${
+              <h2 className={`font-bold text-sm flex items-center gap-1.5 font-display tracking-wide transition-colors duration-500 ease-in-out ${
                 isDark ? "text-slate-200" : "text-slate-800"
               }`}>
-                <FileText size={16} className={isDark ? "text-violet-400" : "text-blue-500"} />
+                <FileText size={16} className={`transition-colors duration-500 ease-in-out ${isDark ? "text-violet-400" : "text-blue-500"}`} />
                 <span>Post Builder Parameters</span>
               </h2>
               {input.topic && (
                 <button
                   type="button"
                   onClick={handleReset}
-                  className={`text-xs flex items-center gap-1 font-medium transition cursor-pointer ${
+                  className={`text-xs flex items-center gap-1 font-medium cursor-pointer transition-all duration-500 ease-in-out ${
                     isDark ? "text-slate-400" : "text-slate-500"
                   } hover:opacity-80`}
                 >
@@ -320,7 +320,7 @@ export default function App() {
               
               {/* Target Platform Select */}
               <div className="space-y-2">
-                <label className={`text-xs font-bold uppercase tracking-wider font-display ${
+                <label className={`text-xs font-bold uppercase tracking-wider font-display transition-colors duration-500 ease-in-out ${
                   isDark ? "text-slate-400" : "text-slate-500"
                 }`}>
                   Target Social Platform
@@ -331,7 +331,7 @@ export default function App() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setInput({ ...input, platform: "LinkedIn" })}
-                    className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl border text-sm font-semibold transition-colors cursor-pointer ${
+                    className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl border text-sm font-semibold cursor-pointer transition-all duration-500 ease-in-out ${
                       input.platform === "LinkedIn"
                         ? isDark
                           ? "border-blue-500 bg-blue-950/30 text-blue-300 ring-2 ring-blue-500/10"
@@ -341,7 +341,7 @@ export default function App() {
                           : "border-slate-200 hover:border-slate-300 bg-white text-slate-600"
                     }`}
                   >
-                    <Linkedin size={18} className={input.platform === "LinkedIn" ? (isDark ? "text-blue-400" : "text-blue-600") : "text-slate-500"} />
+                    <Linkedin size={18} className={`transition-colors duration-500 ease-in-out ${input.platform === "LinkedIn" ? (isDark ? "text-blue-400" : "text-blue-600") : "text-slate-500"}`} />
                     <span>LinkedIn Post</span>
                   </motion.button>
                   <motion.button
@@ -349,7 +349,7 @@ export default function App() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setInput({ ...input, platform: "Twitter" })}
-                    className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl border text-sm font-semibold transition-colors cursor-pointer ${
+                    className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl border text-sm font-semibold cursor-pointer transition-all duration-500 ease-in-out ${
                       input.platform === "Twitter"
                         ? isDark
                           ? "border-slate-100 bg-slate-900/60 text-slate-100 ring-2 ring-slate-100/10"
@@ -359,7 +359,7 @@ export default function App() {
                           : "border-slate-200 hover:border-slate-300 bg-white text-slate-600"
                     }`}
                   >
-                    <Twitter size={18} className={input.platform === "Twitter" ? (isDark ? "text-slate-100" : "text-slate-800") : "text-slate-500"} />
+                    <Twitter size={18} className={`transition-colors duration-500 ease-in-out ${input.platform === "Twitter" ? (isDark ? "text-slate-100" : "text-slate-800") : "text-slate-500"}`} />
                     <span>Twitter (X) Post</span>
                   </motion.button>
                 </div>
@@ -367,12 +367,12 @@ export default function App() {
 
               {/* Presets Row */}
               <div className="space-y-2">
-                <span className={`text-xs font-bold uppercase tracking-wider font-display block ${
+                <span className={`text-xs font-bold uppercase tracking-wider font-display block transition-colors duration-500 ease-in-out ${
                   isDark ? "text-slate-400" : "text-slate-500"
                 }`}>
                   Quick Sample Presets
                 </span>
-                <div className={`grid grid-cols-1 gap-1.5 max-h-40 overflow-y-auto pr-1 border rounded-xl p-1.5 font-sans ${
+                <div className={`grid grid-cols-1 gap-1.5 max-h-40 overflow-y-auto pr-1 border rounded-xl p-1.5 font-sans transition-all duration-500 ease-in-out ${
                   isDark 
                     ? "border-slate-800/60 bg-slate-950/60" 
                     : "border-slate-200 bg-slate-50"
@@ -383,12 +383,12 @@ export default function App() {
                       type="button"
                       whileHover={{ x: 3, backgroundColor: isDark ? "rgba(30, 41, 59, 0.4)" : "rgba(255, 255, 255, 0.8)" }}
                       onClick={() => loadPreset(preset)}
-                      className={`text-left px-2.5 py-2 rounded-lg text-xs transition-colors border border-transparent hover:border-slate-850 font-medium flex items-center justify-between cursor-pointer ${
+                      className={`text-left px-2.5 py-2 rounded-lg text-xs border border-transparent hover:border-slate-850 font-medium flex items-center justify-between cursor-pointer transition-all duration-500 ease-in-out ${
                         isDark ? "text-slate-300 hover:text-slate-100" : "text-slate-700 hover:text-slate-900"
                       }`}
                     >
                       <span className="truncate pr-3">{preset.label}</span>
-                      <span className={`text-[9px] font-mono uppercase font-semibold shrink-0 px-1.5 py-0.5 rounded border ${
+                      <span className={`text-[9px] font-mono uppercase font-semibold shrink-0 px-1.5 py-0.5 rounded border transition-all duration-500 ease-in-out ${
                         isDark
                           ? "text-violet-400 bg-violet-950/30 border-violet-800/30"
                           : "text-blue-600 bg-blue-50 border-blue-100"
@@ -403,12 +403,12 @@ export default function App() {
               {/* Topic Input Description */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <label htmlFor="topic-input" className={`text-xs font-bold uppercase tracking-wider font-display ${
+                  <label htmlFor="topic-input" className={`text-xs font-bold uppercase tracking-wider font-display transition-colors duration-500 ease-in-out ${
                     isDark ? "text-slate-400" : "text-slate-500"
                   }`}>
                     Topic / Core Accomplishment
                   </label>
-                  <span className={`text-[10px] font-mono ${isDark ? "text-slate-500" : "text-slate-400"}`}>
+                  <span className={`text-[10px] font-mono transition-colors duration-500 ease-in-out ${isDark ? "text-slate-500" : "text-slate-400"}`}>
                     {input.topic.length} characters
                   </span>
                 </div>
@@ -418,7 +418,7 @@ export default function App() {
                   value={input.topic}
                   onChange={(e) => setInput({ ...input, topic: e.target.value })}
                   placeholder="Paste details of your project, product launch, career lesson, or coding insight here..."
-                  className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:outline-none transition leading-relaxed ${
+                  className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:outline-none transition-all duration-500 ease-in-out leading-relaxed ${
                     isDark
                       ? "bg-slate-950 border-slate-800 text-slate-200 placeholder:text-slate-600 focus:ring-violet-500/20 focus:border-violet-500"
                       : "bg-white border-slate-200 text-slate-900 placeholder:text-slate-400 focus:ring-blue-500/20 focus:border-blue-500"
@@ -442,10 +442,10 @@ export default function App() {
               />
 
               {/* Webhook Automation Settings */}
-              <div className={`border-t pt-4 space-y-2 ${isDark ? "border-slate-800/60" : "border-slate-100"}`}>
+              <div className={`border-t pt-4 space-y-2 transition-colors duration-500 ease-in-out ${isDark ? "border-slate-800/60" : "border-slate-100"}`}>
                 <div className="flex items-center gap-1.5">
-                  <Webhook size={14} className={`${isDark ? "text-violet-400" : "text-blue-500"} shrink-0`} />
-                  <label htmlFor="webhook-url" className={`text-xs font-bold uppercase tracking-wider font-display ${
+                  <Webhook size={14} className={`transition-colors duration-500 ease-in-out ${isDark ? "text-violet-400" : "text-blue-500"} shrink-0`} />
+                  <label htmlFor="webhook-url" className={`text-xs font-bold uppercase tracking-wider font-display transition-colors duration-500 ease-in-out ${
                     isDark ? "text-slate-400" : "text-slate-500"
                   }`}>
                     Auto-Post Webhook URL (Optional)
@@ -457,13 +457,13 @@ export default function App() {
                   value={webhookUrl}
                   onChange={(e) => setWebhookUrl(e.target.value)}
                   placeholder="e.g. https://hook.eu1.make.com/..."
-                  className={`w-full px-3 py-2 text-xs border rounded-xl focus:outline-none focus:ring-2 transition ${
+                  className={`w-full px-3 py-2 text-xs border rounded-xl focus:outline-none focus:ring-2 transition-all duration-500 ease-in-out ${
                     isDark
                       ? "bg-slate-950 border-slate-800 text-slate-200 placeholder:text-slate-600 focus:ring-violet-500/20 focus:border-violet-500"
                       : "bg-white border-slate-200 text-slate-900 placeholder:text-slate-400 focus:ring-blue-500/20 focus:border-blue-500"
                   }`}
                 />
-                <p className={`text-[10px] leading-normal ${isDark ? "text-slate-500" : "text-slate-400"}`}>
+                <p className={`text-[10px] leading-normal transition-colors duration-500 ease-in-out ${isDark ? "text-slate-500" : "text-slate-400"}`}>
                   If set, generated posts are automatically forwarded to Make.com instantly upon generation.
                 </p>
               </div>
@@ -474,7 +474,7 @@ export default function App() {
                 whileHover={{ scale: 1.015 }}
                 whileTap={{ scale: 0.985 }}
                 disabled={state.loading || !input.topic.trim()}
-                className={`w-full py-3.5 px-4 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transition duration-200 cursor-pointer ${
+                className={`w-full py-3.5 px-4 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all duration-500 ease-in-out cursor-pointer ${
                   state.loading || !input.topic.trim()
                     ? isDark
                       ? "bg-slate-800/40 text-slate-500 border border-slate-800/40 cursor-not-allowed shadow-none"
@@ -507,7 +507,7 @@ export default function App() {
               <motion.div 
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className={`border rounded-2xl p-12 text-center shadow-2xl space-y-4 backdrop-blur-sm transition-colors duration-300 ${
+                className={`border rounded-2xl p-12 text-center shadow-2xl space-y-4 backdrop-blur-sm transition-all duration-500 ease-in-out ${
                   isDark
                     ? "bg-[#13171e]/70 border-slate-800/80 shadow-black/20 text-slate-100"
                     : "bg-white border-slate-200/80 shadow-slate-100 text-slate-800"
@@ -539,7 +539,7 @@ export default function App() {
               <motion.div 
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
-                className={`border rounded-2xl p-6 shadow-2xl space-y-3 transition-colors duration-300 ${
+                className={`border rounded-2xl p-6 shadow-2xl space-y-3 transition-all duration-500 ease-in-out ${
                   isDark
                     ? "bg-rose-950/20 border-rose-900/50 text-slate-200"
                     : "bg-rose-50 border-rose-200 text-rose-900"
@@ -573,7 +573,7 @@ export default function App() {
               <div className="space-y-6">
                 
                 {/* Generation Output Editor Controls */}
-                <div className={`border rounded-2xl p-5 shadow-2xl space-y-4 backdrop-blur-sm transition-colors duration-300 ${
+                <div className={`border rounded-2xl p-5 shadow-2xl space-y-4 backdrop-blur-sm transition-all duration-500 ease-in-out ${
                   isDark
                     ? "bg-[#13171e]/70 border-slate-800/80 shadow-black/20"
                     : "bg-white border-slate-200/80 shadow-slate-100"
@@ -581,7 +581,7 @@ export default function App() {
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div className="flex items-center gap-2 flex-wrap">
                       <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-md shadow-emerald-500/50"></div>
-                      <span className={`text-xs font-bold uppercase tracking-wider font-display ${
+                      <span className={`text-xs font-bold uppercase tracking-wider font-display transition-colors duration-500 ease-in-out ${
                         isDark ? "text-slate-300" : "text-slate-800"
                       }`}>
                         Generated Copywriting Result
@@ -589,17 +589,17 @@ export default function App() {
                       
                       {/* Webhook Transmission Status Indicators */}
                       {webhookSending && (
-                        <span className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full flex items-center gap-1 animate-pulse font-mono ${
+                        <span className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full flex items-center gap-1 animate-pulse font-mono transition-all duration-500 ease-in-out ${
                           isDark 
                             ? "text-violet-300 bg-violet-950/40 border-violet-800/40" 
                             : "text-blue-600 bg-blue-50 border border-blue-100"
                         }`}>
-                          <RefreshCw size={10} className={`animate-spin ${isDark ? "text-violet-400" : "text-blue-500"}`} />
+                          <RefreshCw size={10} className={`animate-spin transition-colors duration-500 ease-in-out ${isDark ? "text-violet-400" : "text-blue-500"}`} />
                           <span>Dispatching to Make.com...</span>
                         </span>
                       )}
                       {!webhookSending && webhookResult && (
-                        <span className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full flex items-center gap-1 border font-mono ${
+                        <span className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full flex items-center gap-1 border font-mono transition-all duration-500 ease-in-out ${
                           webhookResult.success
                             ? "text-emerald-400 bg-emerald-950/40 border-emerald-900/50"
                             : "text-rose-400 bg-rose-950/40 border-rose-900/50"
@@ -616,7 +616,7 @@ export default function App() {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={handleCopy}
-                        className={`px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition cursor-pointer font-mono ${
+                        className={`px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 cursor-pointer font-mono transition-all duration-500 ease-in-out ${
                           copied
                             ? "bg-emerald-600 text-white shadow-lg shadow-emerald-900/20"
                             : isDark
@@ -630,19 +630,19 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className={`p-4 rounded-xl border relative group transition-colors duration-300 ${
+                  <div className={`p-4 rounded-xl border relative group transition-all duration-500 ease-in-out ${
                     isDark ? "bg-slate-950 border-slate-800" : "bg-slate-50 border-slate-200"
                   }`}>
                     <textarea
                       rows={10}
                       value={state.result}
                       onChange={(e) => setState({ ...state, result: e.target.value })}
-                      className={`w-full bg-transparent border-none resize-y text-sm leading-relaxed focus:outline-none focus:ring-0 select-text font-sans font-normal ${
+                      className={`w-full bg-transparent border-none resize-y text-sm leading-relaxed focus:outline-none focus:ring-0 select-text font-sans font-normal transition-colors duration-500 ease-in-out ${
                         isDark ? "text-slate-200" : "text-slate-800"
                       }`}
                       placeholder="Post content will appear here..."
                     />
-                    <div className="absolute right-3 bottom-3 opacity-0 group-hover:opacity-100 transition text-[10px] text-slate-500 font-medium font-mono pointer-events-none">
+                    <div className="absolute right-3 bottom-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-[10px] text-slate-500 font-medium font-mono pointer-events-none">
                       Editable Area
                     </div>
                   </div>
@@ -650,7 +650,7 @@ export default function App() {
 
                 {/* Real-time Visual Platform Feed Mock */}
                 <div className="space-y-3">
-                  <h3 className={`text-xs font-bold uppercase tracking-wider font-display px-1 ${
+                  <h3 className={`text-xs font-bold uppercase tracking-wider font-display px-1 transition-colors duration-500 ease-in-out ${
                     isDark ? "text-slate-400" : "text-slate-500"
                   }`}>
                     Live Feed Mockup Preview
@@ -667,13 +667,13 @@ export default function App() {
               <motion.div 
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className={`border rounded-2xl p-12 text-center shadow-xl space-y-4 backdrop-blur-xs transition-colors duration-300 ${
+                className={`border rounded-2xl p-12 text-center shadow-xl space-y-4 backdrop-blur-xs transition-all duration-500 ease-in-out ${
                   isDark
                     ? "bg-[#13171e]/40 border-slate-800/60"
                     : "bg-white border-slate-200"
                 }`}
               >
-                <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto border ${
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto border transition-all duration-500 ease-in-out ${
                   isDark
                     ? "bg-violet-950/40 text-violet-400 border-violet-800/40"
                     : "bg-blue-50 text-blue-600 border-blue-100"
@@ -681,8 +681,8 @@ export default function App() {
                   <Sparkles size={24} />
                 </div>
                 <div className="space-y-1">
-                  <h3 className={`font-bold text-base font-display ${isDark ? "text-slate-100" : "text-slate-800"}`}>Your High-Converting Post Awaits</h3>
-                  <p className={`text-xs max-w-xs mx-auto leading-relaxed ${isDark ? "text-slate-400" : "text-slate-500"}`}>
+                  <h3 className={`font-bold text-base font-display transition-colors duration-500 ease-in-out ${isDark ? "text-slate-100" : "text-slate-800"}`}>Your High-Converting Post Awaits</h3>
+                  <p className={`text-xs max-w-xs mx-auto leading-relaxed transition-colors duration-500 ease-in-out ${isDark ? "text-slate-400" : "text-slate-500"}`}>
                     Fill out the builder form parameters on the left and click generate to render a platform-optimized mockup preview.
                   </p>
                 </div>
@@ -692,7 +692,7 @@ export default function App() {
                     onClick={() => {
                       loadPreset(SAMPLE_TOPICS[0]);
                     }}
-                    className={`text-xs font-bold font-mono underline cursor-pointer ${
+                    className={`text-xs font-bold font-mono underline cursor-pointer transition-colors duration-500 ease-in-out ${
                       isDark ? "text-violet-400 hover:text-violet-300" : "text-blue-600 hover:text-blue-500"
                     }`}
                   >
@@ -703,18 +703,18 @@ export default function App() {
             )}
 
             {/* Platform Strategy Guide */}
-            <div className={`border rounded-2xl p-5 space-y-3 transition-colors duration-300 ${
+            <div className={`border rounded-2xl p-5 space-y-3 transition-all duration-500 ease-in-out ${
               isDark
                 ? "bg-[#13171e]/40 border-slate-800/60"
                 : "bg-white border-slate-200/80"
             }`}>
-              <h4 className={`text-xs font-bold flex items-center gap-1.5 uppercase tracking-wider font-display ${
+              <h4 className={`text-xs font-bold flex items-center gap-1.5 uppercase tracking-wider font-display transition-colors duration-500 ease-in-out ${
                 isDark ? "text-slate-300" : "text-slate-800"
               }`}>
-                <HelpCircle size={14} className={isDark ? "text-violet-400" : "text-blue-500"} />
+                <HelpCircle size={14} className={`transition-colors duration-500 ease-in-out ${isDark ? "text-violet-400" : "text-blue-500"}`} />
                 <span>Expert Copywriter Strategy Guide</span>
               </h4>
-              <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 text-xs leading-relaxed font-sans ${
+              <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 text-xs leading-relaxed font-sans transition-colors duration-500 ease-in-out ${
                 isDark ? "text-slate-400" : "text-slate-600"
               }`}>
                 <div>
@@ -748,15 +748,15 @@ export default function App() {
 
         {/* History Section */}
         {history.length > 0 && (
-          <div id="history-section" className={`mt-8 border rounded-2xl p-5 shadow-2xl space-y-4 backdrop-blur-sm transition-colors duration-300 ${
+          <div id="history-section" className={`mt-8 border rounded-2xl p-5 shadow-2xl space-y-4 backdrop-blur-sm transition-all duration-500 ease-in-out ${
             isDark
               ? "bg-[#13171e]/70 border-slate-800/80 shadow-black/20"
               : "bg-white border-slate-200/80 shadow-slate-100"
           }`}>
-            <div className={`flex items-center justify-between border-b pb-3 ${isDark ? "border-slate-800" : "border-slate-100"}`}>
+            <div className={`flex items-center justify-between border-b pb-3 transition-colors duration-500 ease-in-out ${isDark ? "border-slate-800" : "border-slate-100"}`}>
               <div className="flex items-center gap-2">
-                <History size={18} className={isDark ? "text-violet-400" : "text-blue-500"} />
-                <h3 className={`font-bold text-sm font-display tracking-wide ${isDark ? "text-slate-100" : "text-slate-800"}`}>Copywriting Generation History ({history.length})</h3>
+                <History size={18} className={`transition-colors duration-500 ease-in-out ${isDark ? "text-violet-400" : "text-blue-500"}`} />
+                <h3 className={`font-bold text-sm font-display tracking-wide transition-colors duration-500 ease-in-out ${isDark ? "text-slate-100" : "text-slate-800"}`}>Copywriting Generation History ({history.length})</h3>
               </div>
               <button
                 type="button"
@@ -765,7 +765,7 @@ export default function App() {
                     setHistory([]);
                   }
                 }}
-                className={`text-xs font-mono font-medium cursor-pointer transition flex items-center gap-1 bg-transparent border-none outline-none ${
+                className={`text-xs font-mono font-medium cursor-pointer transition-colors duration-500 ease-in-out flex items-center gap-1 bg-transparent border-none outline-none ${
                   isDark ? "text-rose-400 hover:text-rose-300" : "text-rose-600 hover:text-rose-700"
                 }`}
               >
@@ -778,7 +778,7 @@ export default function App() {
               {history.map((item) => (
                 <div
                   key={item.id}
-                  className={`border rounded-xl p-4 transition duration-150 relative group flex flex-col justify-between ${
+                  className={`border rounded-xl p-4 transition-all duration-500 ease-in-out relative group flex flex-col justify-between ${
                     isDark
                       ? "border-slate-800/80 bg-slate-900/20 hover:bg-slate-900/40"
                       : "border-slate-100 bg-slate-50/50 hover:bg-slate-55"
@@ -828,7 +828,7 @@ export default function App() {
                             });
                             setWebhookResult(null);
                           }}
-                          className={`px-2 py-1 border rounded text-[10px] font-mono cursor-pointer transition ${
+                          className={`px-2 py-1 border rounded text-[10px] font-mono cursor-pointer transition-all duration-500 ease-in-out ${
                             isDark
                               ? "bg-slate-800 hover:bg-slate-750 border-slate-700 text-slate-200"
                               : "bg-white hover:bg-slate-100 border-slate-200 text-slate-700"
@@ -846,7 +846,7 @@ export default function App() {
                               console.error(err);
                             }
                           }}
-                          className={`p-1 rounded cursor-pointer transition ${
+                          className={`p-1 rounded cursor-pointer transition-all duration-500 ease-in-out ${
                             isDark
                               ? "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
                               : "text-slate-500 hover:text-slate-800 hover:bg-slate-100"
@@ -860,7 +860,7 @@ export default function App() {
                           onClick={() => {
                             setHistory(prev => prev.filter(h => h.id !== item.id));
                           }}
-                          className={`p-1 rounded cursor-pointer transition animate-none ${
+                          className={`p-1 rounded cursor-pointer transition-all duration-500 ease-in-out ${
                             isDark
                               ? "text-slate-500 hover:text-rose-400 hover:bg-rose-950/40"
                               : "text-slate-400 hover:text-rose-600 hover:bg-rose-50"
@@ -874,18 +874,18 @@ export default function App() {
 
                     <div className="space-y-1">
                       <div className="text-[9px] text-slate-400 flex items-center gap-1.5 flex-wrap font-mono uppercase">
-                        <span className={`px-1.5 py-0.5 rounded font-semibold border ${
+                        <span className={`px-1.5 py-0.5 rounded font-semibold border transition-all duration-500 ease-in-out ${
                           isDark
                             ? "bg-slate-800/80 border-slate-700/50 text-slate-300"
                             : "bg-slate-100 border-slate-200 text-slate-600"
                         }`}>{item.tone}</span>
-                        <span className={`px-1.5 py-0.5 rounded font-semibold border ${
+                        <span className={`px-1.5 py-0.5 rounded font-semibold border transition-all duration-500 ease-in-out ${
                           isDark
                             ? "bg-slate-800/80 border-slate-700/50 text-slate-300"
                             : "bg-slate-100 border-slate-200 text-slate-600"
                         }`}>{item.industry}</span>
                         {item.webhookStatus && item.webhookStatus !== 'none' && (
-                          <span className={`px-1.5 py-0.5 rounded font-semibold border ${
+                          <span className={`px-1.5 py-0.5 rounded font-semibold border transition-all duration-500 ease-in-out ${
                             item.webhookStatus === 'sent'
                               ? isDark
                                 ? "bg-emerald-950/40 text-emerald-400 border-emerald-900/50"
@@ -898,13 +898,13 @@ export default function App() {
                           </span>
                         )}
                       </div>
-                      <p className={`text-xs line-clamp-2 italic leading-relaxed ${isDark ? "text-slate-400" : "text-slate-500"}`}>
+                      <p className={`text-xs line-clamp-2 italic leading-relaxed transition-colors duration-500 ease-in-out ${isDark ? "text-slate-400" : "text-slate-500"}`}>
                         &ldquo;{item.topic}&rdquo;
                       </p>
                     </div>
                   </div>
 
-                  <div className={`mt-3 pt-3 border-t text-xs line-clamp-3 whitespace-pre-wrap leading-relaxed select-text p-2.5 rounded-lg font-normal border ${
+                  <div className={`mt-3 pt-3 border-t text-xs line-clamp-3 whitespace-pre-wrap leading-relaxed select-text p-2.5 rounded-lg font-normal border transition-all duration-500 ease-in-out ${
                     isDark
                       ? "border-slate-800/60 bg-slate-950 text-slate-300 border-slate-900"
                       : "border-slate-100 bg-white text-slate-700 border-slate-200/60"
@@ -919,12 +919,12 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className={`border-t mt-16 py-8 transition-colors duration-300 ${
+      <footer className={`border-t mt-16 py-8 transition-all duration-500 ease-in-out ${
         isDark ? "border-slate-900 bg-[#0d0f12]" : "border-slate-200 bg-slate-100/50"
       }`}>
-        <div className={`max-w-7xl mx-auto px-4 text-center space-y-2 text-xs ${isDark ? "text-slate-500" : "text-slate-600"}`}>
+        <div className={`max-w-7xl mx-auto px-4 text-center space-y-2 text-xs transition-colors duration-500 ease-in-out ${isDark ? "text-slate-500" : "text-slate-600"}`}>
           <p>© 2026 ViralSpark Copywriting Dashboard. Designed with high-performance layouts.</p>
-          <p className={`font-mono text-[10px] ${isDark ? "text-slate-600" : "text-slate-500"}`}>Powered securely via server-side Google Gemini 3.5 Flash Model APIs.</p>
+          <p className={`font-mono text-[10px] transition-colors duration-500 ease-in-out ${isDark ? "text-slate-600" : "text-slate-500"}`}>Powered securely via server-side Google Gemini 3.5 Flash Model APIs.</p>
         </div>
       </footer>
     </div>
